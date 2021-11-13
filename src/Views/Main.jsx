@@ -5,18 +5,19 @@ import StarTabs from '../Components/StarTabs';
 
 
 const Main = (props) => {
-    const [tabs, setTabs] = useState([])
+    const [mainTabs, setMainTabs] = useState([])
 
     useEffect(()=>{
       axios.get('https://swapi.dev/api/')
-         .then(res=> setTabs(res.data))
+         .then(res=> setMainTabs(res.data))
         .catch(err=>console.log(err))
     });
     return(
-        <div>
+        <div className="d-flex justify-content-evenly">
             {
-                Object.keys(tabs).map((item, i)=> {
-                    return <button key={i} className="btn btn-primary text-light btn-lg text-capitalize">{item}</button>
+                Object.keys(mainTabs).map((item, i)=> {
+                    let call = mainTabs[item]
+                    return <StarTabs item={item} tier2={call} key={i}/>
                 })
             }
             
