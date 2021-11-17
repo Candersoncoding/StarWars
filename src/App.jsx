@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="p-3">
+      <header>
         <h1>Use the Force</h1>
       </header>
       <Router>

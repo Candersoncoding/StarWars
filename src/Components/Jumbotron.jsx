@@ -11,11 +11,11 @@ const Jumbotron = (props) => {
             .catch(err => console.log(err))
     })
     return(
-        <div>
-            <h1>Tron</h1>
+        <div className="jumboDiv">
+            <h1>Jumbo</h1>
             {
                 Object.values(currentData).map((item, i) =>{
-                    return <p>{item.name}</p>
+                    return item.title? <p>{item.title}</p> : <p>{item.name}</p>
                 })
             }
         </div>

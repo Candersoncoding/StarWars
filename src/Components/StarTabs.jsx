@@ -16,8 +16,8 @@ const StarTabs = (props) => {
     }
 
     return (
-        <div className="">
-            <button className="btn btn-outline-primary text-primary btn-lg text-capitalize" onClick={onClickHandler}>{props.item}</button>
+        <div>
+            <button className="starTabBtn" onClick={onClickHandler}>{props.item}</button>
             {clicked? <Jumbotron call={apiCall}/> : <p></p>}
         </div>
     )

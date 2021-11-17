@@ -15,7 +15,7 @@ const Main = (props) => {
     });
 
     return(
-        <div className="d-flex justify-content-evenly">
+        <div className="mainDiv">
             {
                 Object.keys(mainTabs).map((item, i)=> {
                     let call = mainTabs[item]
