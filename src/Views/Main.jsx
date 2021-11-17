@@ -13,6 +13,7 @@ const Main = (props) => {
          .then(res=> setMainTabs(res.data))
         .catch(err=>console.log(err))
     });
+
     return(
         <div className="d-flex justify-content-evenly">
             {

@@ -3,23 +3,19 @@ import axios from "axios";
 
 const Jumbotron = (props) => {
 
-    const [tabData, setTabData] = useState([])
+    const [currentData, setCurrentData] = useState([])
 
-    useEffect(()=> {
-        setTabData(`${props.data}`)
+    useEffect(() => {
+        axios.get(`${props.call}`)
+            .then(res => setCurrentData(res.data.results))
+            .catch(err => console.log(err))
     })
-
     return(
         <div>
+            <h1>Tron</h1>
             {
-                Object.keys(tabData).map((item, i) =>{
-                    // if (item === "films") {
-                    //     return <p key={i} >{item.title}</p>
-                    // }
-                    // else{
-                    //     return <p key={i} >{item.name}</p>
-                    // }
-                   <p>{item}</p> 
+                Object.values(currentData).map((item, i) =>{
+                    return <p>{item.name}</p>
                 })
             }
         </div>

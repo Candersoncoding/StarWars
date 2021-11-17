@@ -6,27 +6,19 @@ import Jumbotron from './Jumbotron';
 
 const StarTabs = (props) => {
 
-    const [tierTwoInfo, setTierTwoInfo] = useState([])
+    const [apiCall, setAPICall] = useState([])
+    const [clicked, setClicked] = useState(false)
 
     const onClickHandler = (event) => {
-        axios.get(`${props.tier2}`)
-            .then(res => {
-                console.log(res.data.results)
-                setTierTwoInfo(res.data.results)})
-            .catch(res => console.log(res.err))
-    };
+        event.preventDefault()
+            setAPICall(`${props.tier2}`)
+            setClicked(true)
+    }
 
     return (
         <div className="">
             <button className="btn btn-outline-primary text-primary btn-lg text-capitalize" onClick={onClickHandler}>{props.item}</button>
-            {
-                Object.keys(tierTwoInfo).map((item, i) =>{
-                    let tabData = tierTwoInfo[item]
-                    return <Jumbotron key={i} data={tabData} />
-                    
-                })
-            }
-            {/* <h1>{props.tier2}</h1> this needs a component in an info container */}
+            {clicked? <Jumbotron call={apiCall}/> : <p></p>}
         </div>
     )
 
