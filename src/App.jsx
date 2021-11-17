@@ -12,10 +12,12 @@ function App() {
 
   return (
     <div className="App">
-       <h1>Use the Force</h1>
-       <Router>
-         <Main path='/' />
-       </Router>
+      <header className="p-3">
+        <h1>Use the Force</h1>
+      </header>
+      <Router>
+        <Main path='/' />
+      </Router>
     </div>
   );
 }

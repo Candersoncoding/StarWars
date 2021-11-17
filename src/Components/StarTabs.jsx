@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Jumbotron from './Jumbotron';
 
 
 const StarTabs = (props) => {
@@ -17,16 +18,11 @@ const StarTabs = (props) => {
 
     return (
         <div className="">
-            <button className="btn btn-outline-primary text-primary btn-lg text-capitalize"onClick={onClickHandler}>{props.item}</button>
+            <button className="btn btn-outline-primary text-primary btn-lg text-capitalize" onClick={onClickHandler}>{props.item}</button>
             {
                 Object.keys(tierTwoInfo).map((item, i) =>{
-                    let tier2results = tierTwoInfo[item]
-                    if (`${props.item}` === "films") {
-                        return <p key={i} >{tier2results.title}</p>
-                    }
-                    else{
-                        return <p key={i} >{tier2results.name}</p>
-                    }
+                    let tabData = tierTwoInfo[item]
+                    return <Jumbotron key={i} data={tabData} />
                     
                 })
             }

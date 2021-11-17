@@ -2,6 +2,7 @@ import {React, useState, useEffect} from "react";
 import {Link} from '@reach/router';
 import axios from "axios";
 import StarTabs from '../Components/StarTabs';
+import Jumbotron from "../Components/Jumbotron";
 
 
 const Main = (props) => {
